@@ -1,7 +1,8 @@
 resource "aws_iam_policy" "policy" {
-  name = "test_policy3"
-  path = "/"
+  name        = "test_policy3"
+  path        = "/"
   description = "My test policy"
+
   policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -15,15 +16,3 @@ resource "aws_iam_policy" "policy" {
 }
 EOF
 }
-
-
-
-
-
-
-
-
-
-
-
-
