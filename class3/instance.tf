@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  ami           = "ami-02354e95b39ca8dec" 
+  ami           = "${data.aws_ami.centos.id}" 
   instance_type = "t2.micro"
   key_name  = "${aws_key_pair.class.key_name}"
   vpc_security_group_ids = ["${aws_security_group.provisioner.id}"]
@@ -8,7 +8,7 @@ resource "aws_instance" "web" {
     connection {
       host = "${self.public_ip}"
       type = "ssh"
-      user = "ec2-user"
+      user = "centos"
       private_key = "${file("~/.ssh/id_rsa")}"
     }
     source      = "r1soft.repo"
@@ -19,7 +19,7 @@ resource "aws_instance" "web" {
     connection {
       host = "${self.public_ip}"
       type = "ssh"
-      user = "ec2-user"
+      user = "centos"
       private_key = "${file("~/.ssh/id_rsa")}"
   }
   inline = [
