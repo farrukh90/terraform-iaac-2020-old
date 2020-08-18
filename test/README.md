@@ -22,3 +22,9 @@ module "app1" {
 
 # Running in different region
 1. Change "region" to something else
+
+
+# Using different Images
+### For centos use AMI_NUMBER
+### For Ubuntu use  099720109477
+### For AMI   use  AMI_NUMBER
