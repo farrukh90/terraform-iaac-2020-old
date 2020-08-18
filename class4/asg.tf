@@ -19,8 +19,6 @@ resource "aws_autoscaling_group" "example" {
         instance_type     = "c4.large"
         weighted_capacity = "3"
       }
-    
-      
 
       override {
         instance_type     = "c3.large"
