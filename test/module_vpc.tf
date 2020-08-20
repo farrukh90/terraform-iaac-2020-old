@@ -10,3 +10,6 @@ module "wordpress" {
     private_cidr3               =   "${var.private_cidr3}"      
 }
 
+
+
+
