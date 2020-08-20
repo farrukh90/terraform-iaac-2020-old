@@ -31,3 +31,7 @@ output "public_subnet3" {
 output "region" {
   value = "${module.wordpress.region}"
 }
+
+output "Tags" {
+  value = "${module.wordpress.Tags}"
+}

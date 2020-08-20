@@ -8,6 +8,7 @@ module "wordpress" {
     private_cidr1               =   "${var.private_cidr1}"      
     private_cidr2               =   "${var.private_cidr2}"     
     private_cidr3               =   "${var.private_cidr3}"      
+    tags                        =   "${var.tags}"
 }
 
 

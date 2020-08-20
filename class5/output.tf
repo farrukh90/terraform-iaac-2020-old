@@ -21,3 +21,8 @@ output "private_subnets" {
 output "region" {
   value = "${var.region}"
 }
+
+
+output "Tags" {
+  value = "${var.tags}"
+}
