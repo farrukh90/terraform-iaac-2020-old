@@ -1,5 +1,5 @@
 resource "aws_route_table" "r" {
-  vpc_id     = "${aws_vpc.main.id}"
+  vpc_id = "${aws_vpc.main.id}"
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -12,12 +12,10 @@ resource "aws_route_table_association" "a" {
   route_table_id = "${aws_route_table.r.id}"
 }
 
-
 resource "aws_route_table_association" "b" {
   subnet_id      = "${aws_subnet.public2.id}"
   route_table_id = "${aws_route_table.r.id}"
 }
-
 
 resource "aws_route_table_association" "c" {
   subnet_id      = "${aws_subnet.public3.id}"

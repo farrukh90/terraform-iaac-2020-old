@@ -22,7 +22,6 @@ output "region" {
   value = "${var.region}"
 }
 
-
 output "Tags" {
   value = "${var.tags}"
 }
