@@ -1,4 +1,5 @@
 {
+    "_comment": "The line below installs R1soft agent",
     "builders": [{
       "type": "amazon-ebs",
       "region": "us-east-1",
@@ -7,11 +8,16 @@
       "ssh_username": "centos",
       "ami_name": "r1soft {{timestamp}}"
     }],
+    "_comment": "The line below installs provisioner",
     "provisioners": [{
       "type": "file",
          "source": "r1soft.repo",
           "destination": "/tmp/"
            },
+           {
+            "type": "breakpoint",
+            "note": "Wait for you to delete"
+          },
         {
       "type": "shell",
          "inline":[
@@ -23,9 +29,17 @@
             "sudo systemctl enable cdp-server"
            ]
          },
+         {
+            "type": "breakpoint",
+            "note": "Wait for you to delete"
+          },
       {
       "type": "shell",
           "script": "script.sh"
+          },
+          {
+            "type": "breakpoint",
+            "note": "Wait for you to delete"
           }
        ]
 }
