@@ -1,5 +1,16 @@
+
 # Module to create RDS
+
+### This repo requires mysql client.
+### Please install by running 
+```
+sudo yum install mysql -y
+```
+
 ## Create a file module.tf and add the following
+
+
+
 ```
 module "db" {
     source = "./class7"
@@ -37,4 +48,10 @@ value = "${module.db.allowed_hosts}"
 output "DB_NAME" {
 value = "${module.db.DB_NAME}"
 }
+```
+
+## Run 
+```
+terraform init 
+terraform apply
 ```
