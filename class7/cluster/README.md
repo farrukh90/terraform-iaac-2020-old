@@ -13,7 +13,7 @@ sudo yum install mysql -y
 
 ```
 module "db" {
-    source = "./class7/instance"
+    source = "./class7/cluster"
     region = "us-east-2"
     subnet_ids = [
     "subnet-0764b3812f98463f4", 
@@ -25,8 +25,8 @@ module "db" {
     "0.0.0.0/0"
     ]
     db_name = "dbname"
-    engine = "mysql"
-    engine_version = "5.7"
+    engine = "aurora"
+    engine_version = "5.6.10a"
     instance_class = "db.t2.micro"
     username = "foo"
     password = "foobarbaz"
