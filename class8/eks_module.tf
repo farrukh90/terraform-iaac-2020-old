@@ -19,11 +19,12 @@ module "my-cluster" {
    version = "12.0.0"
   cluster_name = "my-cluster"
   cluster_version = "1.14"
-  subnets = ["subnet-c74d1e8d", "subnet-e4820eb8", "subnet-1fe46778"]
-  vpc_id = "vpc-1471ad6e"
+  subnets = ["subnet-01fd890eaff2139b7", "subnet-06e2b411c295d270d", "subnet-00f8f8482e906ba1f"]
+  vpc_id = "vpc-07653ca7ae9fba593"
   worker_groups = [{
     instance_type = "m4.large"
     asg_max_size = 5
+    asg_min_size = 3
     }
   ]
 }
