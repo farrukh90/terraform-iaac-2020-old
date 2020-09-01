@@ -8,6 +8,7 @@ resource "azurerm_network_interface" "nic1" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = "${azurerm_public_ip.IP.id}"
   }
+  tags = "${var.tags}"
 }
 
 resource "azurerm_network_interface" "nic2" {
@@ -20,6 +21,7 @@ resource "azurerm_network_interface" "nic2" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = "${azurerm_public_ip.IP2.id}"
   }
+  tags = "${var.tags}"
 }
 
 resource "azurerm_network_interface" "nic3" {
@@ -32,4 +34,5 @@ resource "azurerm_network_interface" "nic3" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = "${azurerm_public_ip.IP3.id}"
   }
+  tags = "${var.tags}"
 }

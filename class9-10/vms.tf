@@ -3,7 +3,7 @@ resource "azurerm_virtual_machine" "vm1" {
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   network_interface_ids = ["${azurerm_network_interface.nic1.id}"]
-  vm_size = "Standard_DS1_v2"
+  vm_size = "${var.vm_size}"
   storage_image_reference {
    publisher = "${var.publisher}"
     offer = "${var.offer}"
@@ -17,16 +17,14 @@ resource "azurerm_virtual_machine" "vm1" {
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name = "vm1"
-    admin_username = "centos"
+    computer_name = "${var.vm1_computername}"
+    admin_username = "${var.admin_username}"
     admin_password = "Password1234!"
   }
   os_profile_linux_config {
     disable_password_authentication = false
   }
-  tags {
-    environment = "staging"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -35,7 +33,7 @@ resource "azurerm_virtual_machine" "vm2" {
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   network_interface_ids = ["${azurerm_network_interface.nic2.id}"]
-  vm_size = "Standard_DS1_v2"
+  vm_size = "${var.vm_size}"
   storage_image_reference {
     publisher = "${var.publisher}"
     offer = "${var.offer}"
@@ -49,19 +47,17 @@ resource "azurerm_virtual_machine" "vm2" {
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name = "vm2"
-    admin_username = "centos"
+    computer_name = "${var.vm2_computername}"
+    admin_username = "${var.admin_username}"
   }
   os_profile_linux_config {
     disable_password_authentication = true
     ssh_keys {
     path = "/home/centos/.ssh/authorized_keys"
-    key_data = "${var.ssh_key}"
+    key_data = "${file("~/.ssh/id_rsa.pub")}"
     }
   }
-  tags {
-    environment = "staging"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -70,7 +66,7 @@ resource "azurerm_virtual_machine" "vm3" {
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   network_interface_ids = ["${azurerm_network_interface.nic3.id}"]
-  vm_size = "Standard_DS1_v2"
+  vm_size = "${var.vm_size}"
   storage_image_reference {
     publisher = "${var.publisher}"
     offer = "${var.offer}"
@@ -85,16 +81,14 @@ resource "azurerm_virtual_machine" "vm3" {
   }
   os_profile {
     computer_name = "${var.vm3_computername}"
-    admin_username = "centos"
+    admin_username = "${var.admin_username}"
   }
   os_profile_linux_config {
     disable_password_authentication = true
     ssh_keys {
     path = "/home/centos/.ssh/authorized_keys"
-    key_data = "${var.ssh_key}"
+    key_data = "${file("~/.ssh/id_rsa.pub")}"
      }
   }
-  tags {
-    environment = "staging"
- }
+  tags = "${var.tags}"
 }

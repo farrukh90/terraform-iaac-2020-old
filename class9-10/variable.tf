@@ -3,7 +3,6 @@ variable "address_space" {}
 variable "vnet_name" {}
 variable "resource_group_name" {}
 variable "security_group_name" {}
-variable "ssh_key" {}
 variable "vm1_computername" {}
 variable "vm2_computername" {}
 variable "vm3_computername" {}
@@ -17,4 +16,6 @@ variable "sku" {}
 variable "offer" {}
 variable "version" {}
 variable "admin_username" {}
-variable "storage_account" {}
+variable "tags" {
+  type = "map"
+}

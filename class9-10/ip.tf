@@ -3,6 +3,8 @@ resource "azurerm_public_ip" "IP" {
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   allocation_method = "Dynamic"
+  tags = "${var.tags}"
+
 }
 
 resource "azurerm_public_ip" "IP2" {
@@ -10,6 +12,8 @@ resource "azurerm_public_ip" "IP2" {
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   allocation_method = "Dynamic"
+  tags = "${var.tags}"
+
 }
 
 resource "azurerm_public_ip" "IP3" {
@@ -17,4 +21,6 @@ resource "azurerm_public_ip" "IP3" {
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   allocation_method = "Dynamic"
+  tags = "${var.tags}"
+
 }

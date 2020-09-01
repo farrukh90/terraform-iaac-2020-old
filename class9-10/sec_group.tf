@@ -13,7 +13,5 @@ resource "azurerm_network_security_group" "sec_group1" {
     source_address_prefix = "*"
     destination_address_prefix = "*"
 }
-  tags = {
-    environment = "${var.environment}"
-  }
+  tags = "${var.tags}"
 }
